@@ -2,9 +2,15 @@ from django.template.response import TemplateResponse
 
 from guestbook.forms import GreetingForm
 from guestbook.models import Greeting
+from random import choice
 
+title = 'Hiro の GuestBook(django)'
+sub_titles = ['How are you?', 'Sayang Sayang.', 'How is weather?']
 
 def index(request):
+
+    sub_title = choice(sub_titles)
+
     """メイン画面."""
     if request.method == 'POST':
         form = GreetingForm(request.POST)
@@ -18,4 +24,6 @@ def index(request):
     return TemplateResponse(request,
                             'guestbook/index.html',
                             {'greetings': greetings,
-                             'form': form})
+                             'form': form,
+                             'title': title,
+                             'sub_title': sub_title})

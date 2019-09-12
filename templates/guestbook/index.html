@@ -3,23 +3,25 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title> ゲストブック</title>
+    <title>{{ title }}</title>
     <link rel="stylesheet" href="{% static 'guestbook/css/style.css' %}" type="text/css">
 </head>
 <body>
-<h1> ゲストブック</h1>
+<h1>{{ title }}</h1>
+    <h2>{{ sub_title }}</h2>
+<img src="{% static "guestbook/images/take.png" %}" width="300" height="200" alt="person">
 <form action="/" method="post">
     {% csrf_token %}
-    <p>書き込みをどうぞ。</p>
+    <p>Please write something below</p>
     {{ form.as_p }}
-<input type="submit" value="送信">
+<input type="submit" value="Send">
 </form>
 
 <div class="entries-area">
 {% if greetings %}
-<h2>これまでの書き込み</h2>
+<h2>History</h2>
 {% for greeting in greetings %}
-<h3>{{ greeting.name }}さんの書き込み({{ greeting.created_at }}):</h3>
+<h3>{{ greeting.name }} mentioned at ({{ greeting.created_at }}):</h3>
 {{ greeting.comment|linebreaks }}
 {% endfor %}
 {% endif %}

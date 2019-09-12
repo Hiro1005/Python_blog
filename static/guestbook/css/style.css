@@ -8,6 +8,10 @@ h1 {
     padding: 0 1em;
     color: #FFFFFF;
 }
+h2 {
+    padding: 0 2em;
+    color: #FFFFFF;
+}
 form {
     padding: 0.5em 2em; background-color: #78B8F8;
 }

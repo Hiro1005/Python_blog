@@ -4,18 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="{% static 'guestbook/css/style.css' %}" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'guestbook/css/style.css' %}" type="text/css" />
 </head>
 <body>
 <h1>{{ title }}</h1>
     <h2>{{ sub_title }}</h2>
-<img src="{% static "guestbook/images/take.png" %}" width="300" height="200" alt="person">
+<img src="{% static "guestbook/images/take.png" %}" width="300" height="200" alt="person" />
 <form action="/" method="post">
     {% csrf_token %}
     <p>Please write something below</p>
     {{ form.as_p }}
 <input type="submit" value="Send">
 </form>
+
+<table class="table table-striped">
+    <tr>
+      <th>質問内容 with bootstrap</th>
+      <th>公開日</th>
+    </tr>
+    <tr>
+        <th>2つめの質問</th>
+        <th>2015/11/4</th>
+      </tr>
+      <tr>
+        <th>2つめの質問</th>
+        <th>2015/11/5</th>
+      </tr>
+</table>
+
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>
+<button type="button" class="btn btn-link">Link</button>
 
 <div class="entries-area">
 {% if greetings %}
